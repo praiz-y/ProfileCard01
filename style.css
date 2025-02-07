@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #f4f4f9;
+}
+
+.profile-card.dark-mode {
+  background-color: #2d2d2d;
+  box-shadow: 0px 0px 24px 4px rgba(0, 255, 255, 0.199);
+  color: #f4f4f9;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle input {
+  display: none;
+}
+
+.theme-toggle label {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #007bff;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle input:checked + label {
+  color: #f39c12;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  transform: scale(0.95);
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#profileName {
+  font-size: 1.6rem;
+  color: #333;
+  margin-top: 10px;
+}
+body.dark-mode #profileName{
+  color: aqua;
+}
+
+.profile-card h2 {
+  font-size: 1.1rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+body.dark-mode .bio{
+  color: #f4f4f9;
+}
+
+.bio:hover {
+  color: #333;
+}
+
+.location {
+  font-weight: 800;
+}
+body.dark-mode .location{
+  color: rgb(191, 248, 248);
+}
+
+/* Social Links */
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: grid; /* Use grid to control the layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Specific grid layout for diamond formation */
+.social-links li:nth-child(1) {
+  grid-column: 2 / 3; /* Email at the top center */
+}
+
+.social-links li:nth-child(2) {
+  grid-column: 1 / 2; /* LinkedIn on the left */
+}
+
+.social-links li:nth-child(3) {
+  grid-column: 3 / 4; /* GitHub on the right */
+}
+
+.social-links li:nth-child(4) {
+  grid-column: 2 / 3; /* Twitter at the bottom center */
+}
+
+/* Style for each link */
+.social-links li a {
+  padding: 10px 20px;
+  background-color: #db8605;
+  border-radius: 24px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effects */
+.social-links li a:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+.skills {
+  margin-top: 20px;
+}
+
+.skill {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.skill label{
+  display: block;
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+progress[value] {
+  animation: fillProgress 2s ease-out forwards;
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+progress:hover {
+  background-color: #0056b3;
+}
+
+
+progress::-webkit-progress-bar {
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 10px;
+  animation: fillProgress 2s ease-out forwards;
+}
+
+progress::-moz-progress-bar {
+  border-radius: 10px;
+  animation: fillProgress 2s ease-out forwards;
+}
+body.dark-mode progress::-webkit-progress-value {
+  background-color: aqua;
+}
+
+
+
+progress:hover::-webkit-progress-value {
+  background-color: #03d103;
+}
+
+progress:hover::-moz-progress-bar {
+  background-color: #0056b3;
+}
+
+
+
+.utc-time {
+  font-weight: bold;
+  color: #444;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+body.dark-mode .utc-time{
+  color: #f4f4f9;
+}
+
+@media (max-width: 480px) {
+  body{
+    padding: 40px 0;
+  }
+  .profile-card {
+    padding: 15px;
+    max-width: 300px;
+  }
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+  }
+  .social-links {
+    grid-template-columns: 1fr 1fr; /* Two columns to make space for links */
+    gap: 20px; /* Add gap between the links */
+    row-gap: 30px;
+  }
+
+  /* Centering email button and twitter button */
+  .social-links li:nth-child(1) {
+    grid-column: 1 / 3; /* Email spans both columns */
+    text-align: center; /* Ensure email is centered */
+  }
+
+  .social-links li:nth-child(4) {
+    grid-column: 1 / 3; /* Twitter spans both columns */
+    text-align: center; /* Ensure twitter is centered */
+  }
+
+  /* Make LinkedIn and GitHub display in the same row */
+  .social-links li:nth-child(2) {
+    grid-column: 1 / 2; /* LinkedIn on the first row */
+  }
+
+  .social-links li:nth-child(3) {
+    grid-column: 2 / 3; /* GitHub on the second row */
+  }
+}
